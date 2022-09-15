@@ -15,7 +15,6 @@ class ShopeCubit extends Cubit<ShopState> {
 
   Future<void> changeAppMode() async {
     isDark = !isDark;
-    print(isDark);
     CacheHelper.putData(
       key: 'isDark',
       value: isDark,

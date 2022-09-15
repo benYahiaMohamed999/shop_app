@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_app/layout/ShopLayout.dart';
 import 'package:test_app/modules/on_bording/login/loginScreen.dart';
+import 'package:test_app/shared/componet/componet.dart';
 import 'package:test_app/shared/local/cache_Helper.dart';
 import 'package:test_app/shared/local/remote/dio_helper.dart';
 import 'package:test_app/shared/style/theme.dart';
@@ -21,8 +22,8 @@ void main() async {
   //bool isDark = CacheHelper.getData(key: 'isDark');
   Widget widget;
   bool? onBoarding = CacheHelper.getData(key: 'onBoarding');
-  String? token = CacheHelper.getData(key: 'token');
-
+  token = CacheHelper.getData(key: 'token');
+  print(token);
   if (onBoarding != null) {
     if (token != null)
       widget = ShopLayout();

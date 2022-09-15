@@ -14,13 +14,13 @@ class CategoriesDataModel {
   CategoriesDataModel.fromJson(Map<String, dynamic> json) {
     current_page = json['current_page'];
     json['data'].forEach((element) {
-      data.add(DataModel.fromJson(json['data']));
+      data.add(DataModel.fromJson(element));
     });
   }
 }
 
 class DataModel {
-  late int id;
+  late int? id;
   late String name;
   late String image;
 

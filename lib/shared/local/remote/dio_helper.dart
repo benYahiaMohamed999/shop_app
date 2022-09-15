@@ -26,7 +26,7 @@ class DioHelper {
 
     return await dio.get(
       url,
-      queryParameters: query ?? null,
+      queryParameters: query,
     );
   }
 
@@ -43,7 +43,7 @@ class DioHelper {
       'Content-Type': 'application/json',
     };
 
-    return dio.post(
+    return await dio.post(
       url,
       queryParameters: query,
       data: data,
