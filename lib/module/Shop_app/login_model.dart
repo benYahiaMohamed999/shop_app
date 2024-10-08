@@ -1,44 +1,42 @@
 class ShopLoginModel {
-  late bool status;
-  late String message;
+  ShopLoginModel({
+    required this.status,
+    required this.message,
+    required this.data,
+  });
+  late final bool status;
+  late final String message;
+  late final Data data;
 
-  UserData? data;
   ShopLoginModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     message = json['message'];
-    data = json['data'] != null ? UserData.fromJaso(json['data']) : null;
+    data = Data.fromJson(json['data']);
   }
 }
 
-class UserData {
-  late int id;
-  late String name;
-  late String email;
-  late String phone;
-  late String image;
-  late int points;
-  late int credit;
-  late String token;
+class Data {
+  Data({
+    required this.name,
+    required this.phone,
+    required this.email,
+    required this.id,
+    required this.image,
+    required this.token,
+  });
+  late final String name;
+  late final String phone;
+  late final String email;
+  late final int id;
+  late final String image;
+  late final String token;
 
-  UserData(
-    this.credit,
-    this.email,
-    this.id,
-    this.image,
-    this.name,
-    this.phone,
-    this.points,
-    this.token,
-  );
-//named constractor
-  UserData.fromJaso(Map<String, dynamic> json) {
-    id = json['id'];
-    credit = json['credit'];
-    email = json['email'];
-    image = json['image'];
+  Data.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     phone = json['phone'];
-    points = json['points'];
+    email = json['email'];
+    id = json['id'];
+    image = json['image'];
     token = json['token'];
   }
 }

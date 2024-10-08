@@ -193,7 +193,6 @@ void signOut(context) {
   });
 }
 
-String token = '';
 void printFullText(String text) {
   final pattern = RegExp('.{1,800}'); //800 is the size of each chunck
   pattern.allMatches(text).forEach(
@@ -211,3 +210,6 @@ Widget myDivider() => Padding(
         color: Colors.grey[300],
       ),
     );
+
+String? token =
+    'gJO8UGjCvKrFAepNX7etq7FWkTVPAYsdNDmMruaqsDfQcpLVjKSXpni1C6tQOGTrH4Elxd';

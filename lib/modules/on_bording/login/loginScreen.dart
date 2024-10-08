@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_app/modules/on_bording/login/cubit/cubitLogin.dart';
 import 'package:test_app/modules/on_bording/login/cubit/stateLogin.dart';
 import 'package:test_app/shared/componet/componet.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:test_app/shared/local/cache_Helper.dart';
 
 import '../../../layout/ShopLayout.dart';
@@ -21,16 +20,15 @@ class LoginScrren extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context) => LoginCubit(),
-      child: BlocConsumer<LoginCubit, LoginState>(
-        listener: (context, state) {
+        create: (BuildContext context) => LoginCubit(),
+        child: BlocConsumer<LoginCubit, LoginState>(listener: (context, state) {
           if (state is LoginSuccesState) {
             if (state.loginModel.status) {
               print(state.loginModel.message);
-              print(state.loginModel.data?.token);
+              print(state.loginModel.data.token);
               CacheHelper.saveData(
                 key: 'token',
-                value: state.loginModel.data?.token,
+                value: state.loginModel.data.token,
               ).then((value) {
                 navigateAndFinsh(
                   context,
@@ -38,7 +36,7 @@ class LoginScrren extends StatelessWidget {
                 );
               });
             } else {
-              print(state.loginModel.message);
+              print(state.loginModel.message.toString());
 
               showToast(
                 text: state.loginModel.message,
@@ -46,8 +44,7 @@ class LoginScrren extends StatelessWidget {
               );
             }
           }
-        },
-        builder: (context, state) {
+        }, builder: (context, state) {
           return Scaffold(
             appBar: AppBar(),
             body: Center(
@@ -194,8 +191,6 @@ class LoginScrren extends StatelessWidget {
               ),
             ),
           );
-        },
-      ),
-    );
+        }));
   }
 }

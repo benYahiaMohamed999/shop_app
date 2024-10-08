@@ -8,10 +8,6 @@ import 'package:test_app/shared/local/remote/dio_helper.dart';
 import 'package:test_app/shared/style/theme.dart';
 
 import 'bloc_observer.dart';
-import 'layout/Shop_layoute/cubit/ShopState.dart';
-import 'layout/Shop_layoute/cubit/shopCubit.dart';
-import 'layout/cubit darkMode/cubit.dart';
-import 'modules/on_bording/login/cubit/cubitLogin.dart';
 import 'modules/on_bording/onBordingScreen.dart';
 
 void main() async {

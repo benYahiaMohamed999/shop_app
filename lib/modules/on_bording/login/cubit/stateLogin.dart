@@ -1,5 +1,3 @@
-import 'package:test_app/module/Shop_app/login_model.dart';
-
 abstract class LoginState {}
 
 class LoginInitialState extends LoginState {}

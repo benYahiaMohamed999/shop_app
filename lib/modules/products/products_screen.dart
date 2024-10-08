@@ -40,7 +40,7 @@ Widget builderWidget(
         HomeModel model, CategoriesModel categoriesModel, context) =>
     SingleChildScrollView(
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           CarouselSlider(
             items: model.data.banners
@@ -100,7 +100,7 @@ Widget builderWidget(
                   height: 15,
                 ),
                 Container(
-                  height: 100,
+                  height: 150,
                   child: ListView.separated(
                     physics: BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
@@ -130,10 +130,11 @@ Widget builderWidget(
           ),
           Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
+              borderRadius: BorderRadius.circular(50),
               color: Colors.grey[300],
             ),
             child: GridView.count(
+              clipBehavior: Clip.antiAlias,
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
               crossAxisCount: 2,
@@ -160,10 +161,11 @@ Widget buildCategoriesItem(DataModel model, context) => Container(
             Image(
               image: NetworkImage(model.image),
               //wselt
-              height: 100,
+              height: 120,
               width: 120,
               fit: BoxFit.cover,
             ),
+          Spacer(),
           Container(
             color: Colors.black.withOpacity(0.6),
             width: double.infinity,
@@ -185,11 +187,11 @@ Widget buildProduct(ProductModel model, context) => Container(
       color: Colors.white,
       child: Center(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              height: 90,
-              width: 80,
+              height: 150,
+              width: 120,
               child: Stack(
                 alignment: AlignmentDirectional.topCenter,
                 children: [
@@ -198,7 +200,7 @@ Widget buildProduct(ProductModel model, context) => Container(
                       model.image,
                     ),
                     width: double.infinity,
-                    height: 200,
+                    height: double.infinity,
                   ),
                   if (model.discount != 0)
                     Container(
@@ -220,9 +222,7 @@ Widget buildProduct(ProductModel model, context) => Container(
                 ],
               ),
             ),
-            SizedBox(
-              height: 12,
-            ),
+            Spacer(),
             Padding(
               padding: const EdgeInsets.all(5.0),
               child: Column(
